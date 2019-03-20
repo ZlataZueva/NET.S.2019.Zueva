@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.S.2019.Zueva.01", "NET.S.2019.Zueva.01\NET.S.2019.Zueva.01.csproj", "{CFB693C6-9390-47B8-B199-6AABF08077FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.S.2019.Zueva.01Tests", "NET.S.2019.Zueva.01Tests\NET.S.2019.Zueva.01Tests.csproj", "{03D9A1EF-7EF4-4F45-B7AB-7CD8AADBDCCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFB693C6-9390-47B8-B199-6AABF08077FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB693C6-9390-47B8-B199-6AABF08077FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB693C6-9390-47B8-B199-6AABF08077FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB693C6-9390-47B8-B199-6AABF08077FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D9A1EF-7EF4-4F45-B7AB-7CD8AADBDCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D9A1EF-7EF4-4F45-B7AB-7CD8AADBDCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D9A1EF-7EF4-4F45-B7AB-7CD8AADBDCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D9A1EF-7EF4-4F45-B7AB-7CD8AADBDCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5BCF303-6DC4-42AF-A907-CEE96A44FFD3}
+	EndGlobalSection
+EndGlobal
