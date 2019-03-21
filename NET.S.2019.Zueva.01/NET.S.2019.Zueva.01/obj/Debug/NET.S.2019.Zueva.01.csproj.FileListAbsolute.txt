@@ -1,8 +1,0 @@
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\obj\Debug\NET.S.2019.Zueva.01.csprojResolveAssemblyReference.cache
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\bin\Debug\NET.S.2019.Zueva.01.dll
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\bin\Debug\NET.S.2019.Zueva.01.pdb
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\bin\Debug\nunit.framework.dll
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\bin\Debug\nunit.framework.pdb
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\bin\Debug\nunit.framework.xml
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\obj\Debug\NET.S.2019.Zueva.01.dll
-C:\Users\ZlatKa\Documents\Курсы epam\NET.S.2019.Zueva.01\NET.S.2019.Zueva.01\obj\Debug\NET.S.2019.Zueva.01.pdb
