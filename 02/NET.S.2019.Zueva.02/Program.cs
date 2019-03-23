@@ -10,10 +10,22 @@ namespace NET.S._2019.Zueva._02
     {
         static void Main(string[] args)
         {
-            int result = UnusualOperationsWithNumbers.InsertNumber(15, 15, 0, 0);
-            result = UnusualOperationsWithNumbers.InsertNumber(8, 15, 0, 0);
-            result = UnusualOperationsWithNumbers.InsertNumber(8, 15, 3, 8);
-            result = UnusualOperationsWithNumbers.InsertNumber(15, 8, 1, 3);
+            int result1 = UnusualOperationsWithNumbers.InsertNumber(15, 15, 0, 0);
+            result1 = UnusualOperationsWithNumbers.InsertNumber(8, 15, 0, 0);
+            result1 = UnusualOperationsWithNumbers.InsertNumber(8, 15, 3, 8);
+            result1 = UnusualOperationsWithNumbers.InsertNumber(15, 8, 1, 3);
+
+            int result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(12);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(513);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(2017);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(414);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(144);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(1234321);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(1234126);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(3456432);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(10);
+            result2 = UnusualOperationsWithNumbers.FindNextBiggerNumber(20);
+
         }
     }
 }
