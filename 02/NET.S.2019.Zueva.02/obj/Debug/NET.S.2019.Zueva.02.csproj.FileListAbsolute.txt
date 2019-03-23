@@ -1,0 +1,6 @@
+C:\Users\ZlatKa\Documents\Курсы\NET.S.2019.Zueva.02\NET.S.2019.Zueva.02\bin\Debug\NET.S.2019.Zueva.02.exe.config
+C:\Users\ZlatKa\Documents\Курсы\NET.S.2019.Zueva.02\NET.S.2019.Zueva.02\bin\Debug\NET.S.2019.Zueva.02.exe
+C:\Users\ZlatKa\Documents\Курсы\NET.S.2019.Zueva.02\NET.S.2019.Zueva.02\bin\Debug\NET.S.2019.Zueva.02.pdb
+C:\Users\ZlatKa\Documents\Курсы\NET.S.2019.Zueva.02\NET.S.2019.Zueva.02\obj\Debug\NET.S.2019.Zueva.02.csprojResolveAssemblyReference.cache
+C:\Users\ZlatKa\Documents\Курсы\NET.S.2019.Zueva.02\NET.S.2019.Zueva.02\obj\Debug\NET.S.2019.Zueva.02.exe
+C:\Users\ZlatKa\Documents\Курсы\NET.S.2019.Zueva.02\NET.S.2019.Zueva.02\obj\Debug\NET.S.2019.Zueva.02.pdb
