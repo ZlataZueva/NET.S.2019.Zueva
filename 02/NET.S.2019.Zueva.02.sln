@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.S.2019.Zueva.02", "NET.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersOperationsTesting", "NumbersOperationsTesting\NumbersOperationsTesting.csproj", "{A5991CAF-CCCF-4718-8735-CC4655B01556}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUnitTests", "MSUnitTests\MSUnitTests.csproj", "{C553D3F7-8E90-48BB-ADE9-AB3A73FA669F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A5991CAF-CCCF-4718-8735-CC4655B01556}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5991CAF-CCCF-4718-8735-CC4655B01556}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5991CAF-CCCF-4718-8735-CC4655B01556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C553D3F7-8E90-48BB-ADE9-AB3A73FA669F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C553D3F7-8E90-48BB-ADE9-AB3A73FA669F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C553D3F7-8E90-48BB-ADE9-AB3A73FA669F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C553D3F7-8E90-48BB-ADE9-AB3A73FA669F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
