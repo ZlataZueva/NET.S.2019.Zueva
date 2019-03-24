@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using NET.S._2019.Zueva._02;
+using System.Collections.Generic;
 using System;
 
 namespace NumbersOperationsTesting
@@ -43,22 +44,11 @@ namespace NumbersOperationsTesting
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
-        public void DifferentNumbersNonZeroRangeInsertNumberTest()
-        {
-            //Arrange
-            int sourceNumber = 15;
-            int inNumber = 8;
-            byte i = 1;
-            byte j = 3;
-            int expectedResult = 1;
-
-
-            //Act
-            int actualResult = UnusualOperationsWithNumbers.InsertNumber(sourceNumber, inNumber, i, j);
-
-            //Assert
-            Assert.AreEqual(expectedResult, actualResult);
+        [TestCase(15, 8, 1, 3, 1)]
+        [TestCase(8, 15, 3, 8,120)]
+        public void DifferentNumbersNonZeroRangeInsertNumberTest(int numberSource, int numberIn, byte bitFrom, byte bitTo, int expectedResult)
+        { 
+            Assert.AreEqual(expectedResult, UnusualOperationsWithNumbers.InsertNumber(numberSource, numberIn, bitFrom, bitTo));
         }
 
     }
@@ -93,4 +83,26 @@ namespace NumbersOperationsTesting
             Assert.AreEqual(ExpectedResult, UnusualOperationsWithNumbers.FindNextBiggerNumber(number));
         }
     }
+
+    [TestFixture]
+    public class FilterDigitTests
+    {
+        [TestCase(new int[] { 7, 1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17 },7, new int[] {7,7,70,17 })]
+        public void ListWithTargetNumbersTests (int[] sourceNumberArr, byte digitToFilter, int[] expectedResult)
+        {
+            List<int> sourceNumberList = new List<int>(sourceNumberArr);
+            UnusualOperationsWithNumbers.FilterDigit(sourceNumberList, digitToFilter);
+            Assert.AreEqual(new List<int>(expectedResult),sourceNumberList);
+        }
+
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 68, 69, 15 }, 7, new int[] { })]
+        public void ListWithoutTargetNumbersTests(int[] sourceNumberArr, byte digitToFilter, int[] expectedResult)
+        {
+            List<int> sourceNumberList = new List<int>(sourceNumberArr);
+            UnusualOperationsWithNumbers.FilterDigit(sourceNumberList, digitToFilter);
+            Assert.AreEqual(new List<int>(expectedResult), sourceNumberList);
+        }
+    }
+
+   
 }
