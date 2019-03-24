@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
+//using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,7 +63,7 @@ namespace NET.S._2019.Zueva._02
                 resultString += numberStr[firstDigitBiggerthenNextIndex.Value];
                 //digitsList[firstDigitBiggerthenNextIndex.Value + 1] = digitsList[firstDigitBiggerthenNextIndex.Value];
                 digitsToSort.Sort();
-                for (i=0; i<digitsToSort.Count(); i++)
+                for (i=0; i<digitsToSort.Count; i++)
                 {
                     resultString += digitsToSort[i];
                 }
@@ -71,10 +72,50 @@ namespace NET.S._2019.Zueva._02
             return result;
         }
 
-        public static int FindNextBiggerNumber(int sourceNumber, out int msecTime)
+        public static int FindNextBiggerNumber(int sourceNumber, out long msecTime)
         {
-            msecTime = 0;
-            return -1;
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            int result = FindNextBiggerNumber(sourceNumber);
+            stopwatch.Stop();
+            msecTime = stopwatch.ElapsedMilliseconds;
+            return result;
+        }
+
+        public static void FilterDigit (this List<int> sourceNumberList, byte digitToFilter)
+        {
+            int i = 0;
+            while (i < sourceNumberList.Count)
+            { 
+                if (!sourceNumberList[i].ToString().Contains(digitToFilter.ToString()))
+                {
+                    sourceNumberList.RemoveAt(i);
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
+
+        public static double FindNthRoot (double a, int n, double eps)
+        {
+            double xk_1;
+            double xk = 1;
+            do
+            {
+                xk_1 = xk;
+                xk =(1 / (double)n) * ((n - 1) * xk_1 + a / Math.Pow(xk_1, n - 1));
+            }
+            while (Math.Abs(xk - xk_1) > eps);
+
+            int digitsAfterComaCounter = 0;
+            while (eps<1)
+            {
+                digitsAfterComaCounter++;
+                eps *= 10;
+            }
+            return Math.Round(xk, digitsAfterComaCounter);
         }
     }
 
