@@ -27,16 +27,7 @@ namespace NET.S._2019.Zueva._02
         public static int FindNextBiggerNumber(int sourceNumber)
         {
             int result = -1;
-            //List<byte> digitsList = new List<byte>();
             string numberStr = sourceNumber.ToString();
-            //int tenPower = 10;
-            //while(sourceNumber > 0)
-            //{
-            //    byte digit = (byte)(sourceNumber % tenPower);
-            //    sourceNumber /= tenPower;
-            //    tenPower *= 10;
-            //    digitsList.Add(digit);
-            //}
             byte? firstDigitBiggerthenNextIndex = null; //index of first digit (starting from lower) which is bigger then the next one
             byte i = (byte)(numberStr.Length-1);
             List<char> digitsToSort = new List<char>();
@@ -61,7 +52,6 @@ namespace NET.S._2019.Zueva._02
                     resultString += numberStr[i];
                 }
                 resultString += numberStr[firstDigitBiggerthenNextIndex.Value];
-                //digitsList[firstDigitBiggerthenNextIndex.Value + 1] = digitsList[firstDigitBiggerthenNextIndex.Value];
                 digitsToSort.Sort();
                 for (i=0; i<digitsToSort.Count; i++)
                 {

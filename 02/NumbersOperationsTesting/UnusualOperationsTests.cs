@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
 using NET.S._2019.Zueva._02;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NumbersOperationsTesting
 {
@@ -64,7 +60,37 @@ namespace NumbersOperationsTesting
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
     }
 
+    [TestFixture]
+    public class FindNexBiggerNumberTests
+    {
+        [TestCase(12, 21)]
+        [TestCase(513, 531)]
+        [TestCase(414, 441)]
+        public void SmallNumbersWithOneBiggerNumberTest (int number, int ExpectedResult)
+        {
+            Assert.AreEqual(ExpectedResult, UnusualOperationsWithNumbers.FindNextBiggerNumber(number));
+        }
 
+        [TestCase(2017, 2071)]
+        [TestCase(144, 414)]
+        [TestCase(1234321, 1241233)]
+        [TestCase(1234126, 1234162)]
+        [TestCase(3456432, 3462345)]
+        public void NumbersWithManyBiggerNumbersTest(int number, int ExpectedResult)
+        {
+            Assert.AreEqual(ExpectedResult, UnusualOperationsWithNumbers.FindNextBiggerNumber(number));
+        }
+
+        [TestCase(10, -1)]
+        [TestCase(20, -1)]
+        [TestCase(55, -1)]
+        [TestCase(711, -1)]
+        public void NumbersWithNoBiggerNumbersTest(int number, int ExpectedResult)
+        {
+            Assert.AreEqual(ExpectedResult, UnusualOperationsWithNumbers.FindNextBiggerNumber(number));
+        }
+    }
 }
