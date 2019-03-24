@@ -8,3 +8,15 @@ Task2:
 1. Implement method FindNextBiggerNumber, that takes positive integer number and returns the nearest bigger integer number, 
    consisting of the digits of original number, and -1 or null in the case such a number doesn't exist.
 2. Develop NUnit or MS Unit tests of the method.
+
+Task3:
+1. Add an ability to return time, needed to find the number, to the method FindNextBiggerNumber.
+2. Develop NUnit or MS Unit tests of the method.
+
+Task4:
+1. Implement method FilterDigit, that takes a list of integers and filters it so that only numbers containing target digit are left. DO NOT USE LINQ!
+2. Develop NUnit or MS Unit tests of the method.
+
+Task5:
+1. Implement the FindNthRoot algorithm, which allows to calculate the n-th root (n∈N) of number a (a∈R) by the Newton method with a given accuracy.
+2. Develop NUnit or MS Unit tests of the method.
