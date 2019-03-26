@@ -12,7 +12,7 @@ namespace NET.S._2019.Zueva._01
         /// Sorting of integer array using recursive quick sort algorithm.
         /// </summary>
         /// <param name="array">Array to be sorted.</param>
-        /// <exception cref="ArgumentNullException">Thrown if the array is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the array is NULL.</exception>
         public static int[] QuickSorted(this int[] array)
         {
             if (array != null)
@@ -71,7 +71,7 @@ namespace NET.S._2019.Zueva._01
         /// Sorting of integer array using recursive merge sort algorithm.
         /// </summary>
         /// <param name="array">Array to be sorted.</param>
-        /// <exception cref="ArgumentNullException">Thrown if the array is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the array is NULL.</exception>
         public static int[] MergeSorted(this int[] array)
         {
             if (array != null)

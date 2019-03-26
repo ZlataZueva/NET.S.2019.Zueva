@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraySortingTesting", "ArraySortingTesting\ArraySortingTesting.csproj", "{4591FE02-EFC4-4322-99E8-A4FDC0A75CFD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.S.2019.Zueva.01", "NET.S.2019.Zueva.01\NET.S.2019.Zueva.01.csproj", "{D0AC85FC-F344-48D7-8F44-EAA18DE734ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.S.2019.Zueva.01", "NET.S.2019.Zueva.01.csproj", "{D0AC85FC-F344-48D7-8F44-EAA18DE734ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4591FE02-EFC4-4322-99E8-A4FDC0A75CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4591FE02-EFC4-4322-99E8-A4FDC0A75CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4591FE02-EFC4-4322-99E8-A4FDC0A75CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4591FE02-EFC4-4322-99E8-A4FDC0A75CFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D0AC85FC-F344-48D7-8F44-EAA18DE734ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D0AC85FC-F344-48D7-8F44-EAA18DE734ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0AC85FC-F344-48D7-8F44-EAA18DE734ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
