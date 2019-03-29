@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -90,9 +91,23 @@ namespace NET.S._2019.Zueva._03
         /// <returns>Greatest common divisor of all numbers.</returns>
         /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
         /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
-        public static int FindGDCwithEuclid (params int[] numbers)
+        public static int FindGCDwithEuclid (params int[] numbers)
         {
             return FindGCDofSequence(FindGCDwithEuclid, numbers);
+        }
+
+
+        /// <summary>
+        /// Finds greatest common divisior of a sequence of numbers using Euclid algorithm and estimates execution time.
+        /// </summary>
+        /// <param name="time">Out parameter for estimated execution time.</param>
+        /// <param name="numbers">Numbers to find greatest common divisor of.</param>
+        /// <returns>Greatest common divisor of all numbers.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
+        /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
+        public static int FindGCDwithEuclid (out TimeSpan time, params int[] numbers)
+        {
+            return FindGCDofSequence(FindGCDwithEuclid, out time, numbers);
         }
 
         /// <summary>
@@ -102,14 +117,29 @@ namespace NET.S._2019.Zueva._03
         /// <returns>Greatest common divisor of all numbers.</returns>
         /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
         /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
-        public static int FindGDCwithStein(params int[] numbers)
+        public static int FindGCDwithStein(params int[] numbers)
         {
             return FindGCDofSequence(FindGCDwithStein, numbers);
         }
 
         /// <summary>
+        /// Finds greatest common divisior of a sequence of numbers using Stein's (Binary) algorithm and estimates execution time.
+        /// </summary>
+        /// <param name="time">Out parameter for estimated execution time.</param>
+        /// <param name="numbers">Numbers to find greatest common divisor of.</param>
+        /// <returns>Greatest common divisor of all numbers.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
+        /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
+        public static int FindGCDwithStein(out TimeSpan time, params int[] numbers)
+        {
+            return FindGCDofSequence(FindGCDwithStein, out time, numbers);
+        }
+
+
+        /// <summary>
         /// Finds greatest common divisior of a sequence of numbers using given algorithm.
         /// </summary>
+        /// <param name="algorithm">Algorithm of finding greatest common divisor of two numbers.</param>
         /// <param name="numbers">Numbers to find greatest common divisor of.</param>
         /// <returns>Greatest common divisor of all numbers.</returns>
         /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
@@ -141,6 +171,24 @@ namespace NET.S._2019.Zueva._03
             }
         }
 
+        /// <summary>
+        /// Finds greatest common divisior of a sequence of numbers using given algorithm and estimates execution time.
+        /// </summary>
+        /// <param name="algorithm">Algorithm of finding greatest common divisor of two numbers.</param>
+        /// <param name="time">Out parameter for estimated execution time.</param>
+        /// <param name="numbers">Numbers to find greatest common divisor of.</param>
+        /// <returns>Greatest common divisor of all numbers.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
+        /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
+        private static int FindGCDofSequence(Func<int, int, int> algorithm, out TimeSpan time, params int[] numbers)
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            int result = FindGCDofSequence(algorithm, numbers);
+            stopWatch.Stop();
+            time = stopWatch.Elapsed;
+            return result;
+        }
 
     }
 }
