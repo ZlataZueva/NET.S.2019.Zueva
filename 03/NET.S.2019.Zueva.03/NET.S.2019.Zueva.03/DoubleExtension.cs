@@ -8,7 +8,7 @@ namespace NET.S._2019.Zueva._03
 {
     static class DoubleExtension
     {
-        private static readonly long RangeOfMantissa = 4503599627370496; //2^52, because mantissa takes 23 bits of double value
+        private static readonly long RangeOfMantissa = 4503599627370496; //2^52, because mantissa takes 52 bits of double value
         private static readonly byte ExpBitsCount = 11;
         private static readonly byte MantissaBitsCount = 52;
 
@@ -70,7 +70,7 @@ namespace NET.S._2019.Zueva._03
         /// Get binary representation of a value as a string.
         /// </summary>
         /// <param name="value">Value which binary representation is to be found.</param>
-        /// <param name="size">Size in bits of the value. Default value is sizeof(int)*8.</param>
+        /// <param name="size">Size in bits of the value. Default value is sizeof(long)*8.</param>
         /// <returns>String binary representation of the value.</returns>
         private static string BinaryToString (this long value, byte size = sizeof(long)*8)
         {
