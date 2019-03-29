@@ -8,7 +8,7 @@ namespace NET.S._2019.Zueva._03
 {
     static class DoubleExtension
     {
-        private static readonly int RangeOfMantissa = 8388608; //2^23, because mantissa takes 23 bits of double value
+        private static readonly long RangeOfMantissa = 4503599627370496; //2^52, because mantissa takes 23 bits of double value
         private static readonly byte ExpBitsCount = 11;
         private static readonly byte MantissaBitsCount = 52;
 
@@ -35,7 +35,7 @@ namespace NET.S._2019.Zueva._03
             int powerOfTwo = 0;
             if (value >= 1)
             {
-                int powerOfTwoValue = 1;
+                long powerOfTwoValue = 1;
                 while (value > powerOfTwoValue)
                 {
                     powerOfTwoValue <<= 1;
@@ -55,12 +55,12 @@ namespace NET.S._2019.Zueva._03
             
             //Find E and its string representation
             int intE = powerOfTwo + 1023; // 1023 is from: (-1)^S*1,M*2^(E- 1023 )
-            string E = intE.BinaryToString(ExpBitsCount);
+            string E = ((long)intE).BinaryToString(ExpBitsCount);
 
             //Find M
             double powerOfTwoDoubleValue = powerOfTwo > 0 ? 1 << powerOfTwo : Math.Pow(2, powerOfTwo);
             double offset = (value - powerOfTwoDoubleValue) / powerOfTwoDoubleValue;
-            int intM = (int)Math.Round(RangeOfMantissa * offset);
+            long intM = (long)Math.Round(RangeOfMantissa * offset);
             string M = intM.BinaryToString(MantissaBitsCount);
 
             return S + E + M;
@@ -72,7 +72,7 @@ namespace NET.S._2019.Zueva._03
         /// <param name="value">Value which binary representation is to be found.</param>
         /// <param name="size">Size in bits of the value. Default value is sizeof(int)*8.</param>
         /// <returns>String binary representation of the value.</returns>
-        private static string BinaryToString (this int value, byte size = sizeof(int)*8)
+        private static string BinaryToString (this long value, byte size = sizeof(long)*8)
         {
             char S = value > 0 ? '0' : '1';
             string result = ""; 
