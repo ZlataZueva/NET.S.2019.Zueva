@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Tests
 {
     [TestFixture]
-    public class NUnitTests
+    public class GCDFinderNUnitTests
     {
         [TestCase(new int[] {1,0,5,15,25}, 1)]
         [TestCase(new int[] { 0,0,0,0}, 0)]
@@ -70,6 +70,26 @@ namespace Tests
         public void NotEnoughNumbers_GCDSteinTest(int[] numbers)
         {
             Assert.Throws<ArgumentException>(() => { GCDFinder.FindGCDwithStein(numbers); });
+        }
+    }
+
+    [TestFixture]
+    public class ToBinaryStringConverterNUnitTests
+    {
+        [TestCase(-255.255, "1100000001101111111010000010100011110101110000101000111101011100")]
+        [TestCase(255.255, "0100000001101111111010000010100011110101110000101000111101011100")]
+        [TestCase(4294967295.0, "0100000111101111111111111111111111111111111000000000000000000000")]
+        [TestCase(double.MinValue, "1111111111101111111111111111111111111111111111111111111111111111")]
+        [TestCase(double.MaxValue, "0111111111101111111111111111111111111111111111111111111111111111")]
+        [TestCase(double.Epsilon, "0000000000000000000000000000000000000000000000000000000000000001")]
+        [TestCase(double.NaN, "1111111111111000000000000000000000000000000000000000000000000000")]
+        [TestCase(double.NegativeInfinity, "1111111111110000000000000000000000000000000000000000000000000000")]
+        [TestCase(double.PositiveInfinity, "0111111111110000000000000000000000000000000000000000000000000000")]
+        [TestCase(-0.0, "1000000000000000000000000000000000000000000000000000000000000000")]
+        [TestCase(0.0, "0000000000000000000000000000000000000000000000000000000000000000")]
+        public void AverageNumbers_BinaryToStringTest (double value, string expectedResult)
+        {
+            Assert.AreEqual(expectedResult, value.BinaryToString());
         }
     }
 }

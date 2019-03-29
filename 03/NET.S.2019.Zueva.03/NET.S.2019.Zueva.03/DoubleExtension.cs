@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET.S._2019.Zueva._03
 {
-    static class DoubleExtension
+    public static class DoubleExtension
     {
         private static readonly long RangeOfMantissa = 4503599627370496; //2^52, because mantissa takes 52 bits of double value
         private static readonly byte ExpBitsCount = 11;
