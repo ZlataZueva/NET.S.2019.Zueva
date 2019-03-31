@@ -75,6 +75,8 @@ namespace NET.S._2019.Zueva._03
         private static string BinaryToString (this long value, byte size = sizeof(long)*8)
         {
             char S = value > 0 ? '0' : '1';
+            if (value < 0)
+                value = -value;
             string result = ""; 
             
             while (value > 0)

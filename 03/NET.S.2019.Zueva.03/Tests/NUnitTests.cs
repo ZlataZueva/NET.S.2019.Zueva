@@ -91,5 +91,11 @@ namespace Tests
         {
             Assert.AreEqual(expectedResult, value.BinaryToString());
         }
+
+        [Test]
+        public void Test ()
+        {
+            Assert.AreEqual(2, 2);
+        }
     }
 }
