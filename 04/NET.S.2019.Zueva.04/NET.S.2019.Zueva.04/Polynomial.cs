@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NET.S._2019.Zueva._04
 {
-    public class Polynomial
+    public sealed class Polynomial
     {
         /// <summary>
         /// Coefficients of the polynomial starting from the coefficient of the highest power of indeterminate x.

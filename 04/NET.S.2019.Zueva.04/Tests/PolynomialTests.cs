@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Tests
 {
     [TestFixture]
-    public class PolynomialNUnitTests
+    public class PolynomialTests
     {
         [TestCase(new double[] { 1.0, 0, 3, 0 }, new double[] {3,2,0}, new double[]{3.0,2.0,9.0,6.0,0,0})]
         [TestCase(new double[] {0, 5,7 }, new double[] { 9}, new double[] {45,63 })]
