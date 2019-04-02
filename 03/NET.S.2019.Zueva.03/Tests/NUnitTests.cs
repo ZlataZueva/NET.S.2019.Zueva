@@ -35,7 +35,6 @@ namespace Tests
 
         [TestCase(new int[] { })]
         [TestCase(new int[] {7})]
-        [TestCase(9)]
         public void NotEnoughNumbers_GCDEuclidTest(int[] numbers)
         {
             Assert.Throws<ArgumentException>(() => { GCDFinder.FindGCDwithEuclid(numbers); });
@@ -66,7 +65,6 @@ namespace Tests
 
         [TestCase(new int[] { })]
         [TestCase(new int[] { 7 })]
-        [TestCase(9)]
         public void NotEnoughNumbers_GCDSteinTest(int[] numbers)
         {
             Assert.Throws<ArgumentException>(() => { GCDFinder.FindGCDwithStein(numbers); });

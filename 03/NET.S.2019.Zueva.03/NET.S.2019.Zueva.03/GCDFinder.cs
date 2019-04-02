@@ -150,9 +150,6 @@ namespace NET.S._2019.Zueva._03
             {
                 if (numbers.Count() > 1)
                 {
-                    if (numbers.Contains(0))
-                        return 0;
-
                     int gcd = algorithm(numbers[0], numbers[1]);
                     for (int i = 2; i < numbers.Count(); i++)
                     {

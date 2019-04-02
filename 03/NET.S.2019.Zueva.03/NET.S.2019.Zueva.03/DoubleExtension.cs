@@ -58,7 +58,7 @@ namespace NET.S._2019.Zueva._03
             string E = ((long)intE).BinaryToString(ExpBitsCount);
 
             //Find M
-            double powerOfTwoDoubleValue = powerOfTwo > 0 ? 1 << powerOfTwo : Math.Pow(2, powerOfTwo);
+            double powerOfTwoDoubleValue = powerOfTwo > 0 ? ((long)1 << powerOfTwo) : Math.Pow(2, powerOfTwo);
             double offset = (value - powerOfTwoDoubleValue) / powerOfTwoDoubleValue;
             long intM = (long)Math.Round(RangeOfMantissa * offset);
             string M = intM.BinaryToString(MantissaBitsCount);
@@ -74,7 +74,7 @@ namespace NET.S._2019.Zueva._03
         /// <returns>String binary representation of the value.</returns>
         private static string BinaryToString (this long value, byte size = sizeof(long)*8)
         {
-            char S = value > 0 ? '0' : '1';
+            //char S = value > 0 ? '0' : '1';
             if (value < 0)
                 value = -value;
             string result = ""; 
@@ -88,7 +88,7 @@ namespace NET.S._2019.Zueva._03
             {
                 result = "0" + result;
             }
-            result = S + result;
+            //result = S + result;
             return result;
         }
     }
