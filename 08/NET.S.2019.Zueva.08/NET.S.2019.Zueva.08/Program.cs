@@ -19,7 +19,7 @@ namespace NET.S._2019.Zueva._08
             Console.WriteLine(b2.ToString());
             Console.WriteLine(b1.Equals(b2));
             Console.WriteLine(b1.CompareTo(b2));
-            BookListStorage storage = new BookListStorage(@"C:\Users\ZlatKa\Documents");
+            BookListStorage storage = new BookListStorage(@"C:\Users\ZlatKa\Documents\booklist.bin");
             BookListService service = new BookListService(storage);
             service.AddBook(b1);
             service.AddBook(b2);
