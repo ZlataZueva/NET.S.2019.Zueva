@@ -9,8 +9,10 @@ For the aforementioned collection, the following operations must be implemented:
 2. Test using console application.
 
 Task2:
+
 1.Develop a type system for describing work with a bank account. Account is determined by its number, data on the account holder (name, surname), amount on the account and some bonus points that increase / decrease
 each time when the account is refilled / debited from the account for values different for replenishment and write-off and calculated depending on some values
 values of the "value" of the balance sheet and the "cost" of replenishment. 
 The value of "cost" balance and “cost” of replenishment are integer values and depend on the gradation of the account, which may be, for example, Base, Gold, Platinum.
+
 2. Test using console application.
