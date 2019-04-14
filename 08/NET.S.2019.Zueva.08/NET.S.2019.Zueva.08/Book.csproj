@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Settings.StyleCop" />
     <None Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>

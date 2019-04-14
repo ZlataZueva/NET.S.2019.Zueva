@@ -12,7 +12,16 @@ namespace NET.S_2019.Zueva_08
 
     internal class FindBookByISBN : IFindBookBy
     {
-        private readonly string isbn;
+        private string isbn;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FindBookByISBN"/> class for finding book with ISBN.
+        /// </summary>
+        /// <param name="isbn">ISBN of book to find.</param>
+        public FindBookByISBN(string isbn)
+        {
+            this.isbn = isbn;
+        }
 
         /// <summary>
         /// Searches book in the list by the ISBN.

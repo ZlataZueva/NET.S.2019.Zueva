@@ -1,12 +1,16 @@
-﻿using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="GCDFinder.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._03
+namespace NET.S_2019.Zueva_03
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class GCDFinder
     {
         /// <summary>
@@ -15,25 +19,35 @@ namespace NET.S._2019.Zueva._03
         /// <param name="a">The first number.</param>
         /// <param name="b">The second number.</param>
         /// <returns>The greatest common divisior of the numbers.</returns>
-        public static int FindGCDwithEuclid (int a, int b)
+        public static int FindGCDwithEuclid(int a, int b)
         {
-            //If one of the numbers is 0 GCD is another number 
+            // If one of the numbers is 0 GCD is another number
             if (a == 0)
+            {
                 return b;
+            }
+
             if (b == 0)
+            {
                 return a;
+            }
 
-            //If the number is negative algorithm falls into an infinite loop
-            //Divisiors of a negative number are equal to its absolute value
+            // If the number is negative algorithm falls into an infinite loop
+            // Divisiors of a negative number are equal to its absolute value
             if (a < 0)
+            {
                 a = -a;
-            if (b < 0)
-                b = -b;
+            }
 
-            //Euclid's algorithm
+            if (b < 0)
+            {
+                b = -b;
+            }
+
+            // Euclid's algorithm
             while (a != b)
             {
-                if (a>b)
+                if (a > b)
                 {
                     a -= b;
                 }
@@ -42,6 +56,7 @@ namespace NET.S._2019.Zueva._03
                     b -= a;
                 }
             }
+
             return a;
         }
 
@@ -51,38 +66,61 @@ namespace NET.S._2019.Zueva._03
         /// <param name="a">The first number.</param>
         /// <param name="b">The second number.</param>
         /// <returns>The greatest common divisior of the numbers.</returns>
-        public static int FindGCDwithStein (int a, int b)
+        public static int FindGCDwithStein(int a, int b)
         {
-            //If one of the numbers is 0 GCD is another number 
+            // If one of the numbers is 0 GCD is another number
             if (a == 0)
+            {
                 return b;
+            }
+
             if (b == 0)
+            {
                 return a;
+            }
 
-            //If the number is negative algorithm falls into an infinite loop
-            //Divisiors of a negative number are equal to its absolute value
+            // If the number is negative algorithm falls into an infinite loop
+            // Divisiors of a negative number are equal to its absolute value
             if (a < 0)
+            {
                 a = -a;
-            if (b < 0)
-                b = -b;
+            }
 
-            //Binary (Stein's) algorithm
+            if (b < 0)
+            {
+                b = -b;
+            }
+
+            // Binary (Stein's) algorithm
             if (a == b)
+            {
                 return a;
+            }
+
             if ((~a & 1) != 0)
             {
                 if ((b & 1) != 0)
+                {
                     return FindGCDwithStein(a >> 1, b);
+                }
                 else
+                {
                     return FindGCDwithStein(a >> 1, b >> 1) << 1;
+                }
             }
+
             if ((~b & 1) != 0)
+            {
                 return FindGCDwithStein(a, b >> 1);
+            }
+
             if (a > b)
+            {
                 return FindGCDwithStein((a - b) >> 1, b);
+            }
+
             return FindGCDwithStein((b - a) >> 1, a);
         }
-
 
         /// <summary>
         /// Finds greatest common divisior of a sequence of numbers using Euclid algorithm: https://en.wikipedia.org/wiki/Euclidean_algorithm.
@@ -91,11 +129,10 @@ namespace NET.S._2019.Zueva._03
         /// <returns>Greatest common divisor of all numbers.</returns>
         /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
         /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
-        public static int FindGCDwithEuclid (params int[] numbers)
+        public static int FindGCDwithEuclid(params int[] numbers)
         {
             return FindGCDofSequence(FindGCDwithEuclid, numbers);
         }
-
 
         /// <summary>
         /// Finds greatest common divisior of a sequence of numbers using Euclid algorithm and estimates execution time.
@@ -105,7 +142,7 @@ namespace NET.S._2019.Zueva._03
         /// <returns>Greatest common divisor of all numbers.</returns>
         /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
         /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
-        public static int FindGCDwithEuclid (out TimeSpan time, params int[] numbers)
+        public static int FindGCDwithEuclid(out TimeSpan time, params int[] numbers)
         {
             return FindGCDofSequence(FindGCDwithEuclid, out time, numbers);
         }
@@ -135,7 +172,6 @@ namespace NET.S._2019.Zueva._03
             return FindGCDofSequence(FindGCDwithStein, out time, numbers);
         }
 
-
         /// <summary>
         /// Finds greatest common divisior of a sequence of numbers using given algorithm.
         /// </summary>
@@ -143,8 +179,8 @@ namespace NET.S._2019.Zueva._03
         /// <param name="numbers">Numbers to find greatest common divisor of.</param>
         /// <returns>Greatest common divisor of all numbers.</returns>
         /// <exception cref="ArgumentNullException">Thrown when NULL is passed.</exception>
-        /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception> 
-        private static int FindGCDofSequence (Func<int,int,int> algorithm, params int[] numbers)
+        /// <exception cref="ArgumentException">Thrown when less than two numbers are passed.</exception>
+        private static int FindGCDofSequence(Func<int, int, int> algorithm, params int[] numbers)
         {
             if (numbers != null)
             {
@@ -155,6 +191,7 @@ namespace NET.S._2019.Zueva._03
                     {
                         gcd = algorithm(gcd, numbers[i]);
                     }
+
                     return gcd;
                 }
                 else
@@ -186,6 +223,5 @@ namespace NET.S._2019.Zueva._03
             time = stopWatch.Elapsed;
             return result;
         }
-
     }
 }
