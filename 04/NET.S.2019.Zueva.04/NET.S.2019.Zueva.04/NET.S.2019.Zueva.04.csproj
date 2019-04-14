@@ -40,10 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntArraysComparers.cs" />
+    <Compile Include="ComparerDelegate.cs" />
+    <Compile Include="ElementsSumComparer.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="JaggedIntArrayExtension.cs" />
+    <Compile Include="JaggedIntArrayExtension_DelegatesRealization.cs" />
+    <Compile Include="MaxElementsComparer.cs" />
+    <Compile Include="MinElementsComparer.cs" />
     <Compile Include="Polynomial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Settings.StyleCop" />
+    <None Include="stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
