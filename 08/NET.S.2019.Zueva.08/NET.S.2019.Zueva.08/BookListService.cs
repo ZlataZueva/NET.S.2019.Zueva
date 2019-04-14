@@ -1,39 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="BookListService.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
-    class BookListService
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    internal class BookListService
     {
-        private List<Book> _listOfBooks = new List<Book>();
-        private BookListStorage _bookStorage;
+        private List<Book> listOfBooks = new List<Book>();
+        private BookListStorage bookStorage;
 
         /// <summary>
-        /// Creates BookListService instance with specified storage.
+        /// Initializes a new instance of the <see cref="BookListService"/> class with specified storage.
         /// </summary>
         /// <param name="storage">Storage for the books list.</param>
         /// <exception cref="ArgumentNullException">Thrown if the storage is null.</exception>
-        public BookListService (BookListStorage storage)
+        public BookListService(BookListStorage storage)
         {
             if (ReferenceEquals(storage, null))
             {
                 throw new ArgumentNullException();
             }
 
-            _bookStorage = storage;
-            ListOfBooks = _bookStorage.GetBooksList();
+            this.bookStorage = storage;
+            this.ListOfBooks = this.bookStorage.GetBooksList();
         }
 
         /// <summary>
-        /// Books list.
+        /// Gets books list.
         /// </summary>
         public List<Book> ListOfBooks
         {
-            get => _listOfBooks;
-            private set => _listOfBooks = value;
+            get => this.listOfBooks;
+            private set => this.listOfBooks = value;
         }
 
         /// <summary>
@@ -43,10 +47,9 @@ namespace NET.S._2019.Zueva._08
         /// <exception cref="ArgumentException">Thrown if the book is in the list already.</exception>
         public void AddBook(Book book)
         {
-            if (!IsExist(book))
+            if (!this.IsExist(book))
             {
-                ListOfBooks.Add(book);
-                
+                this.ListOfBooks.Add(book);
             }
 
             throw new ArgumentException();
@@ -59,9 +62,9 @@ namespace NET.S._2019.Zueva._08
         /// <exception cref="ArgumentException">Thrown if the book is not in the list.</exception>
         public void RemoveBook(Book book)
         {
-            if (IsExist(book))
+            if (this.IsExist(book))
             {
-                ListOfBooks.Remove(book); 
+                this.ListOfBooks.Remove(book);
             }
 
             throw new ArgumentException();
@@ -80,7 +83,7 @@ namespace NET.S._2019.Zueva._08
                 throw new ArgumentNullException();
             }
 
-            return criterion.FindBookByTag(ListOfBooks);
+            return criterion.FindBookByTag(this.ListOfBooks);
         }
 
         /// <summary>
@@ -92,7 +95,7 @@ namespace NET.S._2019.Zueva._08
         {
             if (criterion != null)
             {
-                ListOfBooks = criterion.SortBooksByTag(ListOfBooks).ToList();
+                this.ListOfBooks = criterion.SortBooksByTag(this.ListOfBooks).ToList();
             }
 
             throw new ArgumentNullException();
@@ -103,7 +106,7 @@ namespace NET.S._2019.Zueva._08
         /// </summary>
         public void SaveToStorage()
         {
-            _bookStorage.SaveBooksList(ListOfBooks);
+            this.bookStorage.SaveBooksList(this.ListOfBooks);
         }
 
         /// <summary>
@@ -116,7 +119,7 @@ namespace NET.S._2019.Zueva._08
         {
             if (book != null)
             {
-                foreach (Book bookInList in ListOfBooks)
+                foreach (Book bookInList in this.ListOfBooks)
                 {
                     if (book.Equals(bookInList))
                     {

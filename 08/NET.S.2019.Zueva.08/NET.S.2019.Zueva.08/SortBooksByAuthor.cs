@@ -1,24 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="SortBooksByAuthor.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
-    class SortBooksByAuthor:ISortBooksBy
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    internal class SortBooksByAuthor : ISortBooksBy
     {
         /// <summary>
         /// Sort books by author in alphabet order.
         /// </summary>
-        /// <param name="books"></param>
-        /// <returns></returns>
+        /// <param name="books">Books list to sort.</param>
+        /// <returns>Sorted books sequence.</returns>
         public IEnumerable<Book> SortBooksByTag(List<Book> books)
         {
             if (books == null)
             {
                 return null;
             }
+
             var sortedBooks = from b in books
                               orderby b.Author
                               select b;

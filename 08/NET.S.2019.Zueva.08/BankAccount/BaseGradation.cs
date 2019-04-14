@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="BaseGradation.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace BankAccount
 {
-    class BaseGradation:IAccountGradation
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    internal class BaseGradation : IAccountGradation
     {
-        private static readonly double _coefficient = 0.5;
+        private static readonly double Coefficient = 0.5;
 
         public BaseGradation()
         {
-            TakingCost = 1;
-            PuttingCost = 1;
+            this.TakingCost = 1;
+            this.PuttingCost = 1;
         }
 
         public int TakingCost { get; set; }
@@ -32,7 +36,7 @@ namespace BankAccount
         /// </returns>
         public int PutMoney(double money)
         {
-            return (int)(money * _coefficient) * PuttingCost;
+            return (int)(money * Coefficient) * this.PuttingCost;
         }
 
         /// <summary>
@@ -44,7 +48,7 @@ namespace BankAccount
         /// </returns>
         public int TakeMoney(double money)
         {
-            return (int)(money * _coefficient) * TakingCost;
+            return (int)(money * Coefficient) * this.TakingCost;
         }
     }
 }

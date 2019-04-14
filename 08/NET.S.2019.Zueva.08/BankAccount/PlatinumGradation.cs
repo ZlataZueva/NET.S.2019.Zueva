@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="PlatinumGradation.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace BankAccount
 {
-    class PlatinumGradation:IAccountGradation
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    internal class PlatinumGradation : IAccountGradation
     {
-        private static readonly double _coefficient = 0.5;
+        private static readonly double Coefficient = 0.5;
 
         public PlatinumGradation()
         {
-            TakingCost = 5;
-            PuttingCost = 5;
+            this.TakingCost = 5;
+            this.PuttingCost = 5;
         }
 
         public int TakingCost { get; set; }
@@ -32,7 +36,7 @@ namespace BankAccount
         /// </returns>
         public int PutMoney(double money)
         {
-            return (int)(money * _coefficient) * PuttingCost;
+            return (int)(money * Coefficient) * this.PuttingCost;
         }
 
         /// <summary>
@@ -44,7 +48,7 @@ namespace BankAccount
         /// </returns>
         public int TakeMoney(double money)
         {
-            return (int)(money * _coefficient) * TakingCost;
+            return (int)(money * Coefficient) * this.TakingCost;
         }
     }
 }

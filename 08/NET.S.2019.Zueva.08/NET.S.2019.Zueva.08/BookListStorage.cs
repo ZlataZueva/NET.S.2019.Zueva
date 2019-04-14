@@ -1,43 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="BookListStorage.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
-    class BookListStorage
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    internal class BookListStorage
     {
-        private string _path;
+        private string path;
 
         /// <summary>
-        /// Creates a BookListStorage instance with specified path.
+        /// Initializes a new instance of the <see cref="BookListStorage"/> class with specified path.
         /// </summary>
         /// <param name="path">The path to store books list.</param>
         public BookListStorage(string path)
         {
-            Path = path;
+            this.Path = path;
         }
 
         /// <summary>
-        /// The path to store the books list.
+        /// Gets or sets the path to store the books list.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown of the string is empty.</exception>
         public string Path
         {
-            get => _path;
+            get => this.path;
             set
             {
-                if(value == null)
+                if (value == null)
                 {
                     throw new ArgumentNullException();
                 }
+
                 if (value == string.Empty)
                 {
                     throw new ArgumentException();
                 }
-                _path = value;
+
+                this.path = value;
             }
         }
 
@@ -51,7 +57,7 @@ namespace NET.S._2019.Zueva._08
         {
             List<Book> books = new List<Book>();
 
-            using (BinaryReader reader = new BinaryReader(File.Open(Path, FileMode.OpenOrCreate)))
+            using (BinaryReader reader = new BinaryReader(File.Open(this.Path, FileMode.OpenOrCreate)))
             {
                 while (reader.BaseStream.Position != reader.BaseStream.Length)
                 {
@@ -66,6 +72,7 @@ namespace NET.S._2019.Zueva._08
                     books.Add(book);
                 }
             }
+
             return books;
         }
 
@@ -75,12 +82,12 @@ namespace NET.S._2019.Zueva._08
         /// <param name="books">The list of books to be saved.</param>
         public void SaveBooksList(List<Book> books)
         {
-            if (new FileInfo(Path).Length != 0)
+            if (new FileInfo(this.Path).Length != 0)
             {
-                File.WriteAllText(Path, string.Empty);
+                File.WriteAllText(this.Path, string.Empty);
             }
 
-            using (BinaryWriter writer = new BinaryWriter(File.Open(Path, FileMode.OpenOrCreate)))
+            using (BinaryWriter writer = new BinaryWriter(File.Open(this.Path, FileMode.OpenOrCreate)))
             {
                 foreach (Book book in books)
                 {

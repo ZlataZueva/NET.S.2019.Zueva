@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿// <copyright file="GoldGradation.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 namespace BankAccount
 {
-    class GoldGradation:IAccountGradation
-    {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
 
+    internal class GoldGradation : IAccountGradation
+    {
         public GoldGradation()
         {
-            TakingCost = 2;
-            PuttingCost = 2;
+            this.TakingCost = 2;
+            this.PuttingCost = 2;
         }
 
         public int TakingCost { get; set; }
@@ -31,7 +33,7 @@ namespace BankAccount
         /// </returns>
         public int PutMoney(double money)
         {
-            return (int)money * PuttingCost;
+            return (int)money * this.PuttingCost;
         }
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace BankAccount
         /// </returns>
         public int TakeMoney(double money)
         {
-            return (int)money * TakingCost;
+            return (int)money * this.TakingCost;
         }
     }
 }

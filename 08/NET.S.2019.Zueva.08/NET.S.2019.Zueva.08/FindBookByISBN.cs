@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="FindBookByISBN.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
-    class FindBookByISBN : IFindBookBy
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    internal class FindBookByISBN : IFindBookBy
     {
-        private string _isbn;
+        private readonly string isbn;
 
         /// <summary>
         /// Searches book in the list by the ISBN.
@@ -22,7 +26,7 @@ namespace NET.S._2019.Zueva._08
             {
                 foreach (Book bookInList in books)
                 {
-                    if (bookInList.ISBN == _isbn)
+                    if (bookInList.ISBN == this.isbn)
                     {
                         return bookInList;
                     }

@@ -1,18 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class Program
     {
         /// <summary>
         /// Test searching and sorting of books.
         /// </summary>
+        /// <param name="args">Comand line arguments.</param>
         public static void Main(string[] args)
         {
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
             Book b1 = new Book("ISBN978-5-98901-592-9", "Достоевский", "Преступление и наказание", "Солнышко", 1976, 300, 12);
             Book b2 = new Book("ISBN978-5-99025-792-4", "Достоевский", "Идиот", "Звезда", 1979, 500, 23);
             Console.WriteLine(b1.ToString());

@@ -1,22 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="FindBookByTitle.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
-    class FindBookByTitle : IFindBookBy
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    internal class FindBookByTitle : IFindBookBy
     {
-        private string _title;
+        private readonly string title;
 
         /// <summary>
-        /// Creates FindBookByTitle instance for finding books with specified title.
+        /// Initializes a new instance of the <see cref="FindBookByTitle"/> class for finding books with specified title.
         /// </summary>
         /// <param name="title">The title of the book to be found.</param>
         public FindBookByTitle(string title)
         {
-            _title = title;
+            this.title = title;
         }
 
         /// <summary>
@@ -27,11 +31,11 @@ namespace NET.S._2019.Zueva._08
         /// <exception cref="ArgumentNullException">Thrown if the list of books is null.</exception>
         public Book FindBookByTag(List<Book> books)
         {
-            if(books != null)
+            if (books != null)
             {
                 foreach (Book book in books)
                 {
-                    if (book.Title == _title)
+                    if (book.Title == this.title)
                     {
                         return book;
                     }

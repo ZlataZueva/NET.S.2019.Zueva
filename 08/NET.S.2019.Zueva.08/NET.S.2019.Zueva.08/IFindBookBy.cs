@@ -1,4 +1,4 @@
-﻿// <copyright file="ISortBooksBy.cs" company="PlaceholderCompany">
+﻿// <copyright file="IFindBookBy.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -11,10 +11,10 @@ namespace NET.S_2019.Zueva_08
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Interface for sorting books by criterion.
+    /// Interface for searching the book by criterion.
     /// </summary>
-    public interface ISortBooksBy
+    public interface IFindBookBy
     {
-        IEnumerable<Book> SortBooksByTag(List<Book> books);
+        Book FindBookByTag(List<Book> books);
     }
 }

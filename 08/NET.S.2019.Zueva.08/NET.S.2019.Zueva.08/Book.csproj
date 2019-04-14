@@ -45,12 +45,21 @@
     <Compile Include="BookListStorage.cs" />
     <Compile Include="FindBookByISBN.cs" />
     <Compile Include="FindBookByTitle.cs" />
-    <Compile Include="IFindBook.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IFindBookBy.cs" />
     <Compile Include="ISortBooksBy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortBooksByAuthor.cs" />
     <Compile Include="SortBooksByTitle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

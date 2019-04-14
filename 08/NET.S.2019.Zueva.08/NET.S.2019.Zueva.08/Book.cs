@@ -1,23 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Book.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
-namespace NET.S._2019.Zueva._08
+namespace NET.S_2019.Zueva_08
 {
-    public class Book: IEquatable<Book>, IComparable, IComparable<Book>
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public class Book : IEquatable<Book>, IComparable, IComparable<Book>
     {
-        private string _isbn;
-        private string _author;
-        private string _title;
-        private string _publishingHouse;
-        private int _publishingYear;
-        private int _pages;
-        private double _price;
+        private string isbn;
+        private string author;
+        private string title;
+        private string publishingHouse;
+        private int publishingYear;
+        private int pages;
+        private double price;
 
         /// <summary>
-        /// Creates a Book instance with specified characteristics.
+        /// Initializes a new instance of the <see cref="Book"/> class with specified characteristics.
         /// </summary>
         /// <param name="isbn">International Standard Book Number</param>
         /// <param name="author">Fullname of the book's author.</param>
@@ -28,30 +32,32 @@ namespace NET.S._2019.Zueva._08
         /// <param name="price">The price of the book in USD.</param>
         public Book(string isbn, string author, string title, string publisher, int year, int pages, double price)
         {
-            ISBN = isbn;
-            Author = author;
-            Title = title;
-            PublishingHouse = publisher;
-            PublishingYear = year;
-            Pages = pages;
-            Price = price;
+            this.ISBN = isbn;
+            this.Author = author;
+            this.Title = title;
+            this.PublishingHouse = publisher;
+            this.PublishingYear = year;
+            this.Pages = pages;
+            this.Price = price;
         }
 
         /// <summary>
-        /// International Standard Book Number - numeric commercial book 13-digit identifier.
+        /// Gets or sets international Standard Book Number - numeric commercial book 13-digit identifier.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown if the length of the value is less than 13.</exception>
         public string ISBN
-        {   get => _isbn;
+        {
+            get => this.isbn;
             set
             {
                 if (value == null)
                 {
                     throw new ArgumentNullException();
                 }
+
                 if (value.Length >= 13)
                 {
-                    _isbn = value;
+                    this.isbn = value;
                 }
                 else
                 {
@@ -61,21 +67,22 @@ namespace NET.S._2019.Zueva._08
         }
 
         /// <summary>
-        /// Fullname of the book's author.
+        /// Gets or sets fullname of the book's author.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown if the value contains any characters except letters, space, hyphen and single quote.</exception>
         public string Author
         {
-            get => _author;
+            get => this.author;
             set
             {
                 if (value == null)
                 {
                     throw new ArgumentNullException();
                 }
+
                 if (value.All(c => char.IsLetter(c) || c.Equals(' ') || c.Equals('-') || c.Equals('\'')))
                 {
-                    _author = value;
+                    this.author = value;
                 }
                 else
                 {
@@ -85,42 +92,39 @@ namespace NET.S._2019.Zueva._08
         }
 
         /// <summary>
-        /// Title of the book.
+        /// Gets or sets title of the book.
         /// </summary>
         public string Title
         {
-            get => _title;
+            get => this.title;
             set
             {
                 if (value == null)
                 {
                     throw new ArgumentNullException();
                 }
-                _title = value;
+
+                this.title = value;
             }
         }
 
         /// <summary>
-        /// The name of the a company that published the book.
+        /// Gets or sets the name of the a company that published the book.
         /// </summary>
-        public string PublishingHouse { get => _publishingHouse; set => _publishingHouse = value; }
+        public string PublishingHouse { get => this.publishingHouse; set => this.publishingHouse = value; }
 
         /// <summary>
-        /// The year of the book publishing.
+        /// Gets or sets the year of the book publishing.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown if the value is less than zero or bigger than current year.</exception>
         public int PublishingYear
         {
-            get => _publishingYear;
+            get => this.publishingYear;
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException();
-                }
                 if (value > 0 && value < DateTime.Now.Year)
                 {
-                    _publishingYear = value;
+                    this.publishingYear = value;
                 }
                 else
                 {
@@ -130,21 +134,17 @@ namespace NET.S._2019.Zueva._08
         }
 
         /// <summary>
-        /// The number of pages in the book.
+        /// Gets or sets the number of pages in the book.
         /// </summary>
         /// <exception cref="ArgumentException">Throwm if the value is less than or equals zero.</exception>
         public int Pages
         {
-            get => _pages;
+            get => this.pages;
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException();
-                }
                 if (value > 0)
                 {
-                    _pages = value;
+                    this.pages = value;
                 }
                 else
                 {
@@ -154,21 +154,17 @@ namespace NET.S._2019.Zueva._08
         }
 
         /// <summary>
-        /// The price of the book in USD.
+        /// Gets or sets the price of the book in USD.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown if the value is less than zero.</exception>
         public double Price
         {
-            get => _price;
+            get => this.price;
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException();
-                }
                 if (value >= 0)
                 {
-                    _price = value;
+                    this.price = value;
                 }
                 else
                 {
@@ -185,7 +181,7 @@ namespace NET.S._2019.Zueva._08
         /// </returns>
         public override string ToString()
         {
-            return "ISBN:" + ISBN + " Author:" + Author + " Title:" + Title + " Publisher:" + PublishingHouse + " Year:" + PublishingYear.ToString() + " Number of pages:" + Pages.ToString() + " Price:" + Math.Round(Price, 2).ToString();
+            return "ISBN:" + this.ISBN + " Author:" + this.Author + " Title:" + this.Title + " Publisher:" + this.PublishingHouse + " Year:" + this.PublishingYear.ToString() + " Number of pages:" + this.Pages.ToString() + " Price:" + Math.Round(this.Price, 2).ToString();
         }
 
         /// <summary>
@@ -205,8 +201,8 @@ namespace NET.S._2019.Zueva._08
                 return false;
             }
 
-            if (ISBN == book.ISBN && Author == book.Author && Title == book.Title
-                   && PublishingHouse == book.PublishingHouse && PublishingYear == book.PublishingYear && Pages == book.Pages)
+            if (this.ISBN == book.ISBN && this.Author == book.Author && this.Title == book.Title
+                   && this.PublishingHouse == book.PublishingHouse && this.PublishingYear == book.PublishingYear && this.Pages == book.Pages)
             {
                 return true;
             }
@@ -215,12 +211,19 @@ namespace NET.S._2019.Zueva._08
         }
 
         /// <summary>
-        /// Find hash by ISBN
+        /// Find hash by all fields except price.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Books hash code.</returns>
         public override int GetHashCode()
         {
-            return ISBN.GetHashCode();
+            var hashCode = -127691308;
+            hashCode = (hashCode * -1521134295) + EqualityComparer<string>.Default.GetHashCode(this.isbn);
+            hashCode = (hashCode * -1521134295) + EqualityComparer<string>.Default.GetHashCode(this.author);
+            hashCode = (hashCode * -1521134295) + EqualityComparer<string>.Default.GetHashCode(this.title);
+            hashCode = (hashCode * -1521134295) + EqualityComparer<string>.Default.GetHashCode(this.publishingHouse);
+            hashCode = (hashCode * -1521134295) + this.publishingYear.GetHashCode();
+            hashCode = (hashCode * -1521134295) + this.pages.GetHashCode();
+            return hashCode;
         }
 
         /// <summary>
@@ -239,13 +242,13 @@ namespace NET.S._2019.Zueva._08
                 return false;
             }
 
-            if( ReferenceEquals(this, book))
+            if (ReferenceEquals(this, book))
             {
                 return true;
             }
 
-            if (ISBN == book.ISBN && Author == book.Author && Title == book.Title
-                   && PublishingHouse == book.PublishingHouse && PublishingYear == book.PublishingYear && Pages == book.Pages)
+            if (this.ISBN == book.ISBN && this.Author == book.Author && this.Title == book.Title
+                   && this.PublishingHouse == book.PublishingHouse && this.PublishingYear == book.PublishingYear && this.Pages == book.Pages)
             {
                 return true;
             }
@@ -256,14 +259,14 @@ namespace NET.S._2019.Zueva._08
         public int CompareTo(object obj)
         {
             var book = obj as Book;
-            return CompareTo(book);
+            return this.CompareTo(book);
         }
 
         /// <summary>
         /// Compares books by author and title alphabetically.
         /// </summary>
-        /// <param name="book"></param>
-        /// <returns></returns>
+        /// <param name="book">Book to cpmpare with current.</param>
+        /// <returns>1 when current book is after the book, -1 when it is before and 0 when books are equal.</returns>
         public int CompareTo(Book book)
         {
             if (book == null)
@@ -271,10 +274,10 @@ namespace NET.S._2019.Zueva._08
                 return 1;
             }
 
-            int result = string.Compare(Author, book.Author, true);
+            int result = string.Compare(this.Author, book.Author, true);
             if (result == 0)
             {
-                result = string.Compare(Title, book.Title);
+                result = string.Compare(this.Title, book.Title);
                 return result;
             }
             else
