@@ -7,13 +7,13 @@ namespace NET.S_2019.Zueva_08
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using NLog;
 
     internal class BookListService
     {
         private List<Book> listOfBooks = new List<Book>();
         private BookListStorage bookStorage;
+        private Logger logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BookListService"/> class with specified storage.
@@ -22,8 +22,10 @@ namespace NET.S_2019.Zueva_08
         /// <exception cref="ArgumentNullException">Thrown if the storage is null.</exception>
         public BookListService(BookListStorage storage)
         {
+            this.logger = LogManager.GetCurrentClassLogger();
             if (ReferenceEquals(storage, null))
             {
+                this.logger.Error("Specified storage is null.");
                 throw new ArgumentNullException();
             }
 
@@ -47,12 +49,17 @@ namespace NET.S_2019.Zueva_08
         /// <exception cref="ArgumentException">Thrown if the book is in the list already.</exception>
         public void AddBook(Book book)
         {
+            this.logger.Info("Trying to add the book " + book.ToString());
             if (!this.IsExist(book))
             {
                 this.ListOfBooks.Add(book);
+                this.logger.Info("The book was added successfully.");
             }
-
-            throw new ArgumentException();
+            else
+            {
+                this.logger.Error("The book has already been added.");
+                throw new ArgumentException();
+            }
         }
 
         /// <summary>
@@ -62,12 +69,17 @@ namespace NET.S_2019.Zueva_08
         /// <exception cref="ArgumentException">Thrown if the book is not in the list.</exception>
         public void RemoveBook(Book book)
         {
+            this.logger.Info("Trying to remove the book " + book.ToString());
             if (this.IsExist(book))
             {
                 this.ListOfBooks.Remove(book);
+                this.logger.Info("The book was successfully removed.");
             }
-
-            throw new ArgumentException();
+            else
+            {
+                this.logger.Error("The book is not in the list.");
+                throw new ArgumentException();
+            }
         }
 
         /// <summary>
@@ -78,11 +90,14 @@ namespace NET.S_2019.Zueva_08
         /// <exception cref="ArgumentNullException">Thrown if the criterion is null.</exception>
         public Book FindBookByTag(IFindBookBy criterion)
         {
+            this.logger.Info("Try find the book by criterion.");
             if (criterion == null)
             {
+                this.logger.Error("Criterion for finding is null.");
                 throw new ArgumentNullException();
             }
 
+            this.logger.Info("Finding book by criterion");
             return criterion.FindBookByTag(this.ListOfBooks);
         }
 
@@ -93,12 +108,18 @@ namespace NET.S_2019.Zueva_08
         /// <exception cref="ArgumentNullException">Thrown if the criterion is null.</exception>
         public void SortBooksByTag(ISortBooksBy criterion)
         {
+            this.logger.Info("Try sort books by criterion.");
             if (criterion != null)
             {
+                this.logger.Info("Sorting books by criterion.");
                 this.ListOfBooks = criterion.SortBooksByTag(this.ListOfBooks).ToList();
+                this.logger.Info("Books were sorted successfully");
             }
-
-            throw new ArgumentNullException();
+            else
+            {
+                this.logger.Error("Specified sorting criterion is null.");
+                throw new ArgumentNullException();
+            }
         }
 
         /// <summary>
@@ -106,7 +127,9 @@ namespace NET.S_2019.Zueva_08
         /// </summary>
         public void SaveToStorage()
         {
+            this.logger.Info("Saving books to storage.");
             this.bookStorage.SaveBooksList(this.ListOfBooks);
+            this.logger.Info("Books were saved to storage.");
         }
 
         /// <summary>

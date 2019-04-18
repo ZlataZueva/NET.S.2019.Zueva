@@ -13,6 +13,7 @@ namespace NET.S_2019.Zueva_08
 
     public class Book : IEquatable<Book>, IComparable, IComparable<Book>, IFormattable
     {
+        private static readonly string DefaultFormatString = "ISBN XXX-X-XXXX-XXXX-X, Author, Title, Publisher, YYYY, p.";
         private string isbn;
         private string author;
         private string title;
@@ -20,8 +21,6 @@ namespace NET.S_2019.Zueva_08
         private int publishingYear;
         private int pages;
         private double price;
-
-        private static readonly string DefaultFormatString = "ISBN XXX-X-XXXX-XXXX-X, Author, Title, Publisher, YYYY, p.";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Book"/> class with specified characteristics.
@@ -289,12 +288,12 @@ namespace NET.S_2019.Zueva_08
             }
         }
 
-        public string ToString (string format)
+        public string ToString(string format)
         {
             return this.ToString(format, null);
         }
 
-        public string ToString (IFormatProvider formatProvider)
+        public string ToString(IFormatProvider formatProvider)
         {
             return this.ToString(null, formatProvider);
         }
