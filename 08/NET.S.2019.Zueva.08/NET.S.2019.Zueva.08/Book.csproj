@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="BookFormatProvider.cs" />
     <Compile Include="BookListService.cs" />
     <Compile Include="BookListStorage.cs" />
     <Compile Include="FindBookByISBN.cs" />

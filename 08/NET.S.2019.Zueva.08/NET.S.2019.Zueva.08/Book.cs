@@ -6,11 +6,12 @@ namespace NET.S_2019.Zueva_08
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Book : IEquatable<Book>, IComparable, IComparable<Book>
+    public class Book : IEquatable<Book>, IComparable, IComparable<Book>, IFormattable
     {
         private string isbn;
         private string author;
@@ -19,6 +20,8 @@ namespace NET.S_2019.Zueva_08
         private int publishingYear;
         private int pages;
         private double price;
+
+        private static readonly string DefaultFormatString = "ISBN XXX-X-XXXX-XXXX-X, Author, Title, Publisher, YYYY, p.";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Book"/> class with specified characteristics.
@@ -284,6 +287,63 @@ namespace NET.S_2019.Zueva_08
             {
                 return result;
             }
+        }
+
+        public string ToString (string format)
+        {
+            return this.ToString(format, null);
+        }
+
+        public string ToString (IFormatProvider formatProvider)
+        {
+            return this.ToString(null, formatProvider);
+        }
+
+        /// <summary>
+        /// Represents the book in specified format.
+        /// </summary>
+        /// <param name="format">Format string of representation.</param>
+        /// <param name="formatProvider">Defines the symbols used in converting book to its string representation.</param>
+        /// <returns>String representation of the book.</returns>
+        /// <exception cref="FormatException">Thrown when format string is not supported.</exception>
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            if (string.IsNullOrEmpty(format))
+            {
+                format = DefaultFormatString;
+            }
+
+            if (formatProvider == null)
+            {
+                formatProvider = CultureInfo.CurrentCulture;
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            if (format.Contains("ISBN"))
+            {
+                for (int i = 0; i < 13; i++)
+                {
+                    if (format.Contains("X"))
+                    {
+                        int firstIndex = format.IndexOf('X');
+                        format.Remove(firstIndex, 1);
+                        format.Insert(firstIndex, this.ISBN[i].ToString(formatProvider));
+                    }
+                    else
+                    {
+                        throw new FormatException(string.Format("Format string {0} is not supported", format));
+                    }
+                }
+            }
+
+            stringBuilder.Append(format);
+            stringBuilder.Replace("Author", this.Author.ToString(formatProvider));
+            stringBuilder.Replace("Title", this.Title.ToString(formatProvider));
+            stringBuilder.Replace("Publisher", this.PublishingHouse.ToString(formatProvider));
+            stringBuilder.Replace("YYYY", this.PublishingYear.ToString(formatProvider));
+            stringBuilder.Replace("p.", "p. " + this.Pages.ToString(formatProvider));
+            stringBuilder.Replace("P", this.Price.ToString(formatProvider));
+            return stringBuilder.ToString();
         }
     }
 }
