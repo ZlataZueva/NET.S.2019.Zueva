@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer\Timer.csproj", "{4F192BEC-A58F-4BD1-9B3D-4636417D4C36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericBinarySearch", "..\GenericBinarySearch\GenericBinarySearch.csproj", "{33DC26ED-117E-4A86-B8EC-DA60535BF9BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F192BEC-A58F-4BD1-9B3D-4636417D4C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F192BEC-A58F-4BD1-9B3D-4636417D4C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F192BEC-A58F-4BD1-9B3D-4636417D4C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F192BEC-A58F-4BD1-9B3D-4636417D4C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33DC26ED-117E-4A86-B8EC-DA60535BF9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33DC26ED-117E-4A86-B8EC-DA60535BF9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33DC26ED-117E-4A86-B8EC-DA60535BF9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33DC26ED-117E-4A86-B8EC-DA60535BF9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A762E10B-177F-4C78-B8C6-8E1481B5678E}
+	EndGlobalSection
+EndGlobal
