@@ -1,0 +1,10 @@
+<!ELEMENT urlAddresses (urlAddress*)>
+<!ELEMENT urlAddress (host, uri*, parameters?)>
+<!ELEMENT host EMPTY>
+<!ATTLIST host name CDATA #REQUIRED>
+<!ELEMENT uri (segment+)>
+<!ELEMENT parameters (parametr+)>
+<!ELEMENT segment (#CDATA)>
+<!ELEMENT parametr EMPTY>
+<!ATTLIST parametr key CDATA #REQUIRED>
+<!ATTLIST parametr value CDATA #REQUIRED>
