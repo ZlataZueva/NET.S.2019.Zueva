@@ -79,11 +79,9 @@ namespace Gallery.Controllers
         //    return View(model);
         //}
 
-        public ActionResult About()
+        public ActionResult Carusel()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View(galleryDb.Photos.ToList());
         }
 
         public ActionResult Contact()
