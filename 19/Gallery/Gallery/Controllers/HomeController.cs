@@ -28,6 +28,11 @@ namespace Gallery.Controllers
             records.CurrentPage = page;
             records.PageSize = pageSize;
 
+            if(Request.IsAjaxRequest())
+            {
+                return PartialView("_ImagesView", records);
+            }
+
             return View(records);
         }
 

@@ -8,13 +8,19 @@ namespace Gallery
         // Дополнительные сведения об объединении см. на странице https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundels/gallery").Include(
+                       "~/Scripts/jquery-{version}.js",
+                       "~/Scripts/jquery.unobtrusive*",
+                       "~/Scripts/jquery.validate*",
+                       "~/Scripts/carusel.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            bundles.Add(new ScriptBundle("~/bundles/carusel").Include(
                         "~/Scripts/carusel.js"));
 
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,

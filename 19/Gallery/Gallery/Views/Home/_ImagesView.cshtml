@@ -1,0 +1,29 @@
+﻿@model Gallery.Models.PagedList<Gallery.Models.Photo>
+
+<div id="links">
+    @foreach (var item in Model.Content)
+    {
+        <a href="@item.ImagePath" title="@item.Description" data - gallery>
+            <img src="@item.ThumbPath" alt="@item.Description" class="img-rounded" />
+        </a>
+    }
+</div>
+
+<div>
+    @{
+        var grid = new WebGrid(
+                    canPage: true,
+                    rowsPerPage: Model.PageSize,
+                    canSort: true,
+                    ajaxUpdateContainerId: "grid");
+
+        grid.Bind(Model.Content, rowCount: Model.TotalRecords, autoSortAndPage: false);
+        grid.Pager(WebGridPagerModes.All);
+
+        @grid.GetHtml(htmlAttributes: new { id = "grid" },
+        fillEmptyRows: false,
+        mode: WebGridPagerModes.All,
+        columns: grid.Columns());
+    }
+</div>
+
