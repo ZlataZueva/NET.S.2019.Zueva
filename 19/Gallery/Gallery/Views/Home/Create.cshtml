@@ -1,0 +1,50 @@
+﻿@model Gallery.Models.Photo
+
+@{
+    ViewBag.Title = "Upload new photo";
+}
+
+<h2>Upload new photo</h2>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Photo</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-sm-3">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Choose Image(s)", new { @class = "control-label col-md-2" })
+            <div class="col-sm-3">
+                <input type="file" name="files"
+                       multiple="multiple" accept=".jpg, .png, .gif" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <div style="color:red">
+                    @ViewBag.error
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
